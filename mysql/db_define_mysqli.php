@@ -2,7 +2,7 @@
 
 	define('MYSQL_host','localhost');
 	define('MYSQL_db_user','root');
-	define('MYSQL_db_psw','Inf0r,4t1c1');
+	define('MYSQL_db_psw','Inf0rm4t1c1');
 	define('MYSQL_db_name','produzione_cf');
 	
 	//Collegamento al database
