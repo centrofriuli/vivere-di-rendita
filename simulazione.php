@@ -53,7 +53,7 @@ if ($result->num_rows > 0) {
 
     <div id="row">
         <div class="col-md-3 col-xs-offset-9">
-            <label class="btn btn-sm btn-info btn-block" onClick="VaiAPagina('../trattativa/menu.php')">
+            <label class="btn btn-sm btn-info btn-block" onClick="VaiAPagina('../trattativa')">
                 <i class="glyphicon glyphicon-menu-hamburger"></i>
                 <span id="btnMenu">Torna a Menù</span>
             </label>
