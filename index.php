@@ -104,7 +104,7 @@
                 
 	</div><!--fine content -->
   
-	<footer>&copy; Centrofriuli 2019 - Tutti i diritti sono riservati
+	<footer>&copy; Centrofriuli 2022 - Tutti i diritti sono riservati
     </footer>
 
 </div><!--fine contenitore -->
