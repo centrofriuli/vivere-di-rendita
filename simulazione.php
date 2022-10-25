@@ -2,7 +2,9 @@
 require('mysql/db_define_mysqli.php');
 
 session_start();
-
+//tutti gli id
+$sqlAllData = "SELECT id_simulazione FROM tb_dati_t ORDER BY tb_dati_t.id_simulazione DESC";
+$allData = $db->query($sqlAllData);
 //Carico automaticamente il codice documento incrementato di uno dal DB.
 $sql = "SELECT id_simulazione FROM tb_dati_t ORDER BY id_simulazione DESC LIMIT 1";
 $result = $db->query($sql);
@@ -71,15 +73,18 @@ if ($result->num_rows > 0) {
                 <legend>Vivere di rendita</legend>
 
                 <div class="form-group">
-                    <label class="col-md-9 control-label">Cod. Documento</label>
-                    <div class="col-md-3 inputGroupContainer">
+                    <label class="col-md-8 control-label">Cod. Documento</label>
+                    <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span id="recupero" onClick="caricaDoc();" role="button"
                                   title="Dopo aver indicato un documento valido, cliccare qui per caricare i dati"
                                   class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
-                            <input id="id_simulazione" name="id_simulazione" placeholder="Codice" class="form-control"
-                                   type="text" maxlength="9" value="<?php echo $nuovo_id; ?>"
-                                   onkeypress="return soloLettereMaiuscENumeri(event);">
+                            <select id="id_simulazione" name="id_simulazione" class="form-control">
+                                <option selected><?php echo $nuovo_id; ?></option>
+                                <?php foreach ($allData as $data): ?>
+                                    <option><?= $data['id_simulazione'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -179,19 +184,19 @@ if ($result->num_rows > 0) {
                     <div class="col-md-1">
                         <button type="button" id="salva" name="salva" class="btn btn-warning btn-lg"
                                 title="Cliccare per salvare i dati">Salva <span
-                                    class="glyphicon glyphicon-floppy-disk"></span></button>
+                                class="glyphicon glyphicon-floppy-disk"></span></button>
                     </div>
                     <label class="col-md-3 control-label"></label>
                     <div class="col-md-1">
                         <button type="button" id="anteprima" name="anteprima" class="btn btn-info btn-lg"
                                 title="Cliccare per visualizzare i dati in anteprima">Anteprima <span
-                                    class="glyphicon glyphicon-zoom-in"></span></button>
+                                class="glyphicon glyphicon-zoom-in"></span></button>
                     </div>
                     <label class="col-md-2 control-label"></label>
                     <div class="col-md-1">
                         <button type="button" id="sviluppa" name="sviluppa" class="btn btn-info btn-lg"
                                 title="Cliccare per inviare i dati via email al cliente">Invia Email <span
-                                    class="glyphicon glyphicon-envelope"></span></button>
+                                class="glyphicon glyphicon-envelope"></span></button>
                     </div>
                 </div>
 
