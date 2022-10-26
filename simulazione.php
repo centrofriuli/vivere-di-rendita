@@ -65,7 +65,7 @@ if ($result->num_rows > 0) {
     </br>
 
     <div id="contenuto">
-
+        <!--<span id="id_nuovo">--><?php //echo $nuovo_id; ?><!--</span>-->
         <form class="well form-horizontal" method="post" id="contact_form">
             <fieldset>
 
@@ -80,7 +80,7 @@ if ($result->num_rows > 0) {
                                   title="Dopo aver indicato un documento valido, cliccare qui per caricare i dati"
                                   class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
                             <select id="id_simulazione" name="id_simulazione" class="form-control">
-                                <option selected><?php echo $nuovo_id; ?></option>
+                                <option id="optionNuovoId" value="<?php echo $nuovo_id; ?>" selected><?php echo $nuovo_id; ?> (nuovo)</option>
                                 <?php foreach ($allData as $data): ?>
                                     <option><?= $data['id_simulazione'] ?></option>
                                 <?php endforeach; ?>
@@ -184,19 +184,19 @@ if ($result->num_rows > 0) {
                     <div class="col-md-1">
                         <button type="button" id="salva" name="salva" class="btn btn-warning btn-lg"
                                 title="Cliccare per salvare i dati">Salva <span
-                                class="glyphicon glyphicon-floppy-disk"></span></button>
+                                    class="glyphicon glyphicon-floppy-disk"></span></button>
                     </div>
                     <label class="col-md-3 control-label"></label>
                     <div class="col-md-1">
                         <button type="button" id="anteprima" name="anteprima" class="btn btn-info btn-lg"
                                 title="Cliccare per visualizzare i dati in anteprima">Anteprima <span
-                                class="glyphicon glyphicon-zoom-in"></span></button>
+                                    class="glyphicon glyphicon-zoom-in"></span></button>
                     </div>
                     <label class="col-md-2 control-label"></label>
                     <div class="col-md-1">
                         <button type="button" id="sviluppa" name="sviluppa" class="btn btn-info btn-lg"
                                 title="Cliccare per inviare i dati via email al cliente">Invia Email <span
-                                class="glyphicon glyphicon-envelope"></span></button>
+                                    class="glyphicon glyphicon-envelope"></span></button>
                     </div>
                 </div>
 
